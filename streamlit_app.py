@@ -4,16 +4,26 @@ st.title("🎈 Aplikasi Rihan")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
-import altair as alt
+# Draw a title and some text to the app:
+'''
+# This is the document title
+
+This is some _markdown_.
+'''
+
 import pandas as pd
-import streamlit as st
-from numpy.random import default_rng as rng
+df = pd.DataFrame({'col1': [1,2,3]})
+df  # 👈 Draw the dataframe
 
-df = pd.DataFrame(rng(0).standard_normal((200, 3)), columns=["a", "b", "c"])
-chart = (
-    alt.Chart(df)
-    .mark_circle()
-    .encode(x="a", y="b", size="c", color="c", tooltip=["a", "b", "c"])
-)
+x = 10
+'x', x  # 👈 Draw the string 'x' and then the value of x
 
-st.write(chart)
+# Also works with most supported chart types
+import matplotlib.pyplot as plt
+import numpy as np
+
+arr = np.random.normal(1, 1, size=100)
+fig, ax = plt.subplots()
+ax.hist(arr, bins=20)
+
+fig  # 👈 Draw a Matplotlib chart
